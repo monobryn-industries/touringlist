@@ -1,5 +1,5 @@
 {
-	"name": "touringlist-v2",
+	"name": "touringlist",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -14,7 +14,7 @@
 		"lint": "prettier --check . && eslint ."
 	},
 	"engines": {
-		"node": ">=18.18.0"
+		"node": ">=18.17.0"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
