@@ -1,4 +1,5 @@
-name = "touringlist-v2"
+name = "touringlist"
+pages_build_output_dir = ".svelte-kit/cloudflare"
 
 [env.production]
 node_version = "18.18.0"
