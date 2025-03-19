@@ -85,7 +85,7 @@
 		</div>
 		<div class="flex grow-0 flex-col gap-2 p-4">
 			<a href={resource.url} target="_blank" class=" text-base font-normal">{resource.name}</a>
-			<div class="flex flex-row items-center gap-2">
+			<div class="flex flex-row flex-wrap items-center gap-2">
 				{#each resource.locations as location (location)}
 					<button
 						class="text-muted-foreground flex cursor-pointer items-center gap-1 text-xs"
@@ -134,7 +134,7 @@
 	</div>
 {/snippet}
 
-<main class="container mx-auto px-8 pb-10">
+<main class="container mx-auto px-4 pb-10 lg:px-8">
 	<Tabs.Root bind:value={tab}>
 		<div class="mb-4 flex flex-col gap-4 lg:flex-row lg:gap-4">
 			<Tabs.List class="flex flex-wrap gap-1">
