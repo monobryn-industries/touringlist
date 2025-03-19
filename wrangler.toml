@@ -1,0 +1,4 @@
+name = "touringlist-v2"
+
+[env.production]
+node_version = "18.18.0"
