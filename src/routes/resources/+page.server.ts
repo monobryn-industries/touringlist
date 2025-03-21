@@ -41,7 +41,7 @@ export async function load() {
 
 	const routing = processedData.filter((resource) => resource.section === 'Routing');
 
-	const miscellaneous = processedData.filter((resource) => resource.section === 'Other');
+	const other = processedData.filter((resource) => resource.section === 'Other');
 
 	if (data) {
 		return {
@@ -50,7 +50,7 @@ export async function load() {
 				all,
 				overnight,
 				routing,
-				miscellaneous
+				other
 			}
 		};
 	}

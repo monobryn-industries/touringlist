@@ -19,6 +19,7 @@
 	import Bed from 'phosphor-svelte/lib/Bed';
 	import House from 'phosphor-svelte/lib/House';
 	import Farm from 'phosphor-svelte/lib/Farm';
+	import Newspaper from 'phosphor-svelte/lib/Newspaper';
 
 	const { data } = $props();
 
@@ -61,7 +62,7 @@
 			<Path class="size-4" />
 		{:else if value === 'overnight'}
 			<Moon class="size-4" />
-		{:else if value === 'miscellaneous'}
+		{:else if value === 'other'}
 			<DotsNine class="size-4" />
 		{/if}
 		{label}</Tabs.Trigger
@@ -118,6 +119,8 @@
 							<Bed class="size-4" />
 						{:else if type === 'Community Hosting'}
 							<House class="size-4" />
+						{:else if type === 'Blog'}
+							<Newspaper class="size-4" />
 						{:else if type === 'Farm Stays'}
 							<Farm class="size-4" />
 						{:else if type === 'Community' || type === 'Social'}
@@ -141,7 +144,7 @@
 				{@render trigger('all', 'All')}
 				{@render trigger('routing', 'Routing & Navigation')}
 				{@render trigger('overnight', 'Overnight')}
-				{@render trigger('miscellaneous', 'Miscellaneous')}
+				{@render trigger('other', 'Other')}
 			</Tabs.List>
 			<input
 				placeholder="Filter"
@@ -160,7 +163,7 @@
 		<Tabs.Content value="overnight">
 			{@render tabContent()}
 		</Tabs.Content>
-		<Tabs.Content value="miscellaneous">
+		<Tabs.Content value="other">
 			{@render tabContent()}
 		</Tabs.Content>
 	</Tabs.Root>
