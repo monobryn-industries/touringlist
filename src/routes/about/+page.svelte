@@ -3,7 +3,7 @@
 		touringlist is a collection of bicycletouring resources and tools.
 	</p>
 	<p class="text-muted-foreground text-sm">
-		Have a resource you want to add? <a class="text-foreground" href="https://tally.so/r/nPlZ55"
+		Have a resource you'd like added? <a class="text-foreground" href="https://tally.so/r/nPlZ55"
 			>Submit it here!</a
 		>
 	</p>
