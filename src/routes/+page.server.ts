@@ -22,7 +22,11 @@ function processResourceImages(resources: any[]) {
 
 		// Only process image if it exists
 		if (resource.image) {
-			processedResource.imageUrl = urlForImage(resource.image).format('webp').quality(50).url();
+			processedResource.imageUrl = urlForImage(resource.image)
+				.width(600)
+				.format('webp')
+				.quality(75)
+				.url();
 		}
 
 		// Only process favicon if it exists
