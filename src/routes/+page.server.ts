@@ -17,15 +17,20 @@ function urlForImage(source: any) {
 // Process resources to include formatted image URLs
 function processResourceImages(resources: any[]) {
 	return resources.map((resource) => {
-		// Check if the resource has an image field
+		// Create a copy of the resource to add image URLs
+		const processedResource = { ...resource };
+
+		// Only process image if it exists
 		if (resource.image) {
-			// Add a formatted URL to the resource
-			return {
-				...resource,
-				imageUrl: urlForImage(resource.image).format('webp').quality(50).url()
-			};
+			processedResource.imageUrl = urlForImage(resource.image).format('webp').quality(50).url();
 		}
-		return resource;
+
+		// Only process favicon if it exists
+		if (resource.favicon) {
+			processedResource.faviconUrl = urlForImage(resource.favicon).width(48).format('webp').url();
+		}
+
+		return processedResource;
 	});
 }
 
@@ -33,7 +38,7 @@ export async function load() {
 	const data = await client.fetch(`*[_type == "resource"]`);
 
 	// Process all resources to include image URLs
-	const processedData = processResourceImages(data);
+	const processedData = processResourceImages(data).sort((a, b) => a.name.localeCompare(b.name));
 
 	const all = processedData;
 

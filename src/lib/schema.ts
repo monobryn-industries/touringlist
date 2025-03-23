@@ -41,6 +41,8 @@ export interface Resource {
 	slug: Slug;
 	cost: ResourceCost;
 	locations: string[];
+	favicon: string;
+	faviconUrl: string;
 	image: string;
 	imageUrl: string;
 }

@@ -21,6 +21,7 @@
 	import Farm from 'phosphor-svelte/lib/Farm';
 	import Newspaper from 'phosphor-svelte/lib/Newspaper';
 	import Info from 'phosphor-svelte/lib/Info';
+	import X from 'phosphor-svelte/lib/X';
 
 	const { data } = $props();
 
@@ -29,6 +30,8 @@
 	let tab = $state('all');
 	let search = $state('');
 	let sortBy = $state('type');
+
+	console.log(resources);
 
 	let filteredResources = $derived(
 		((resources?.[tab as keyof typeof resources] || resources?.all || []) as Resource[])
@@ -87,8 +90,15 @@
 				<img src={resource.imageUrl} alt={resource.name} class="h-full object-cover" />
 			</a>
 		</div>
-		<div class="flex grow-0 flex-col gap-2 p-4">
-			<a href={resource.url} target="_blank" class=" text-base font-normal">{resource.name}</a>
+		<div class="flex grow-0 flex-col gap-3 p-4">
+			<div class="flex flex-row flex-wrap items-center gap-2">
+				{#if resource.faviconUrl}
+					<img src={resource.faviconUrl} alt={resource.name} class="size-6 rounded-full" />
+				{/if}
+
+				<a href={resource.url} target="_blank" class=" p-0 text-base font-normal">{resource.name}</a
+				>
+			</div>
 			<div class="flex flex-row flex-wrap items-center gap-2">
 				{#each resource.locations as location (location)}
 					<button
@@ -150,12 +160,22 @@
 				{@render trigger('advice', 'Advice and Info')}
 				{@render trigger('other', 'Other')}
 			</Tabs.List>
-			<input
-				placeholder="Filter"
-				bind:value={search}
-				type="text"
-				class="bg-card border-border placeholder:text-muted-foreground h-[34px] border font-mono text-sm placeholder:font-mono placeholder:text-sm"
-			/>
+			<div class="relative">
+				<input
+					placeholder="Filter"
+					bind:value={search}
+					type="text"
+					class="bg-card border-border placeholder:text-muted-foreground h-[34px] border font-mono text-sm placeholder:font-mono placeholder:text-sm"
+				/>
+				{#if search !== ''}
+					<button
+						class="text-muted-foreground absolute top-1/2 right-2 -translate-y-1/2 transform cursor-pointer"
+						onclick={() => (search = '')}
+					>
+						<X class="text-muted-foreground" />
+					</button>
+				{/if}
+			</div>
 		</div>
 
 		<Tabs.Content value="all">
