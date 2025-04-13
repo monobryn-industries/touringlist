@@ -1,7 +1,7 @@
 <header>
 	<div class="container mx-auto flex items-center gap-8 px-4 py-6 lg:px-8 lg:py-10">
 		<h1 class="font-display font-mono text-lg font-semibold">
-			<a href="/">touringlist</a>
+			<a href="/">Touringlist</a>
 		</h1>
 		<nav>
 			<ul class="flex gap-8 font-mono text-sm font-light">

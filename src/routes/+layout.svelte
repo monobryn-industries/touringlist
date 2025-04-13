@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-	<title>touringlist</title>
+	<title>Touringlist</title>
 	<meta name="description" content="A list of biketouring resources" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
